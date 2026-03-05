@@ -1,0 +1,22 @@
+{
+  "name": "spottr",
+  "version": "1.0.0",
+  "description": "Find a gym buddy on campus",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "gym",
+    "college",
+    "buddy",
+    "spottr"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}
