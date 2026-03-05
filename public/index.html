@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spottr | Find a Gym Buddy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="pill">Spottr</p>
+        <h1>Find your next gym buddy on campus.</h1>
+        <p class="sub">
+          Post your workout plan and let other students join in.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Create a session</h2>
+          <form id="create-form" class="form">
+            <label>
+              Your name
+              <input required name="hostName" maxlength="40" placeholder="Alex" />
+            </label>
+
+            <label>
+              College
+              <input required name="college" maxlength="80" placeholder="State University" />
+            </label>
+
+            <label>
+              Lift type
+              <select required name="workoutType">
+                <option value="">Select a workout</option>
+                <option>Leg Day</option>
+                <option>Chest Day</option>
+                <option>Back Day</option>
+                <option>Push</option>
+                <option>Pull</option>
+                <option>Cardio</option>
+                <option>Full Body</option>
+              </select>
+            </label>
+
+            <label>
+              Start time
+              <input required type="datetime-local" name="startTimeLocal" />
+            </label>
+
+            <label>
+              Max group size (including you)
+              <input required type="number" min="2" max="8" value="2" name="capacity" />
+            </label>
+
+            <label>
+              Notes (optional)
+              <textarea name="notes" rows="3" maxlength="250" placeholder="Heavy squats + lunges"></textarea>
+            </label>
+
+            <button type="submit">Post session</button>
+          </form>
+          <p id="create-message" class="message"></p>
+        </article>
+
+        <article class="card">
+          <div class="header-row">
+            <h2>Open sessions</h2>
+            <button id="refresh-btn" class="ghost" type="button">Refresh</button>
+          </div>
+
+          <form id="filter-form" class="filter-form">
+            <label>
+              Filter by college
+              <input name="collegeFilter" maxlength="80" placeholder="Leave blank for all colleges" />
+            </label>
+            <button type="submit" class="ghost">Apply</button>
+          </form>
+
+          <div id="sessions" class="sessions">
+            <p class="muted">No sessions yet. Be the first to post one.</p>
+          </div>
+          <p id="sessions-message" class="message"></p>
+        </article>
+      </section>
+    </main>
+
+    <template id="session-template">
+      <article class="session">
+        <div class="session-head">
+          <h3 class="workout"></h3>
+          <p class="time"></p>
+        </div>
+        <p class="meta"></p>
+        <p class="notes"></p>
+        <p class="joined"></p>
+        <form class="join-form">
+          <input required name="studentName" maxlength="40" placeholder="Your name" />
+          <button type="submit">Join</button>
+        </form>
+      </article>
+    </template>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
