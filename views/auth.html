@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spottr | Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page auth-shell">
+      <section class="hero">
+        <p class="pill">Spottr</p>
+        <h1>Sign in before you hit the gym.</h1>
+        <p class="sub">
+          Each Spottr account has one saved profile. Your username and hashed password stay on the server, not in the
+          browser.
+        </p>
+      </section>
+
+      <section class="auth-grid">
+        <article class="card auth-card">
+          <p class="eyebrow">Sign in</p>
+          <h2>Welcome back</h2>
+          <form id="login-form" class="form">
+            <label>
+              Username
+              <input required name="username" maxlength="24" placeholder="spotter123" />
+            </label>
+
+            <label>
+              Password
+              <input required type="password" name="password" minlength="8" placeholder="At least 8 characters" />
+            </label>
+
+            <button type="submit">Sign in</button>
+          </form>
+          <p id="login-message" class="message"></p>
+        </article>
+
+        <article class="card auth-card">
+          <p class="eyebrow">Create account</p>
+          <h2>Make your profile</h2>
+          <form id="register-form" class="form">
+            <label>
+              Username
+              <input required name="username" maxlength="24" placeholder="spotter123" />
+            </label>
+
+            <label>
+              Password
+              <input required type="password" name="password" minlength="8" placeholder="At least 8 characters" />
+            </label>
+
+            <label>
+              Display name
+              <input required name="displayName" maxlength="40" placeholder="Alex" />
+            </label>
+
+            <label>
+              Experience level
+              <select name="experienceLevel">
+                <option value="">Choose a level</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+              </select>
+            </label>
+
+            <label>
+              Favorite lift
+              <input name="favoriteLift" maxlength="40" placeholder="Squat" />
+            </label>
+
+            <label>
+              Usually free
+              <input name="availability" maxlength="60" placeholder="Weeknights after 6 PM" />
+            </label>
+
+            <label>
+              Bio
+              <textarea
+                name="bio"
+                rows="3"
+                maxlength="220"
+                placeholder="Training for strength and looking for consistent gym partners."
+              ></textarea>
+            </label>
+
+            <button type="submit">Create account</button>
+          </form>
+          <p id="register-message" class="message"></p>
+        </article>
+      </section>
+    </main>
+
+    <script src="/auth.js" type="module"></script>
+  </body>
+</html>

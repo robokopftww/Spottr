@@ -3,36 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spottr | Find a Gym Buddy</title>
+    <title>Spottr | Gym Buddy Finder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <main class="page">
-      <section class="hero">
-        <p class="pill">Spottr</p>
-        <h1>Find your next gym buddy on campus.</h1>
-        <p class="sub">
-          Post your workout plan and let other students join in.
-        </p>
+      <section class="hero hero-row">
+        <div>
+          <p class="pill">Spottr</p>
+          <h1>Find your next gym buddy.</h1>
+          <p class="sub">
+            Your account is your profile, so every post and join happens under your saved Spottr identity.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <button id="refresh-btn" class="ghost" type="button">Refresh</button>
+          <button id="logout-btn" class="ghost" type="button">Log out</button>
+        </div>
       </section>
 
       <section class="grid">
+        <article class="card accent-card">
+          <p class="eyebrow">Your profile</p>
+          <h2 id="profile-name">Loading...</h2>
+          <p id="profile-username" class="muted"></p>
+          <p id="profile-summary" class="active-profile-summary"></p>
+          <p id="profile-details" class="profile-tags"></p>
+        </article>
+
         <article class="card">
-          <h2>Create a session</h2>
+          <div class="header-row">
+            <div>
+              <p class="eyebrow">Post a lift</p>
+              <h2>Create a session</h2>
+            </div>
+          </div>
+          <p id="session-profile-hint" class="muted">Posting with your saved Spottr account.</p>
           <form id="create-form" class="form">
-            <label>
-              Your name
-              <input required name="hostName" maxlength="40" placeholder="Alex" />
-            </label>
-
-            <label>
-              College
-              <input required name="college" maxlength="80" placeholder="State University" />
-            </label>
-
             <label>
               Lift type
               <select required name="workoutType">
@@ -58,28 +71,24 @@
             </label>
 
             <label>
-              Notes (optional)
-              <textarea name="notes" rows="3" maxlength="250" placeholder="Heavy squats + lunges"></textarea>
+              Notes
+              <textarea name="notes" rows="3" maxlength="250" placeholder="Heavy squats and lunges"></textarea>
             </label>
 
             <button type="submit">Post session</button>
           </form>
           <p id="create-message" class="message"></p>
         </article>
+      </section>
 
+      <section class="grid grid-wide">
         <article class="card">
           <div class="header-row">
-            <h2>Open sessions</h2>
-            <button id="refresh-btn" class="ghost" type="button">Refresh</button>
+            <div>
+              <p class="eyebrow">Find a crew</p>
+              <h2>Open sessions</h2>
+            </div>
           </div>
-
-          <form id="filter-form" class="filter-form">
-            <label>
-              Filter by college
-              <input name="collegeFilter" maxlength="80" placeholder="Leave blank for all colleges" />
-            </label>
-            <button type="submit" class="ghost">Apply</button>
-          </form>
 
           <div id="sessions" class="sessions">
             <p class="muted">No sessions yet. Be the first to post one.</p>
@@ -96,12 +105,11 @@
           <p class="time"></p>
         </div>
         <p class="meta"></p>
+        <p class="host-details"></p>
         <p class="notes"></p>
         <p class="joined"></p>
-        <form class="join-form">
-          <input required name="studentName" maxlength="40" placeholder="Your name" />
-          <button type="submit">Join</button>
-        </form>
+        <p class="join-context"></p>
+        <button class="join-btn" type="button">Join session</button>
       </article>
     </template>
 

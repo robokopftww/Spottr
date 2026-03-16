@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: spottr
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_PATH
+        value: /var/data/spottr.db
+    disk:
+      name: spottr-data
+      mountPath: /var/data
+      sizeGB: 5

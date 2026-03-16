@@ -1,16 +1,19 @@
 # Spottr
 
-Spottr is a lightweight app for college students to find gym buddies.
+Spottr is a lightweight app for finding a gym buddy.
 
-Students can:
+Users can:
+- Create one account-backed profile with a username and password
+- Sign in before reaching the main app
 - Post a gym session with workout type and start time
-- Filter sessions by college
 - Join an existing session
+
+Passwords are hashed and stored on the server. The browser only keeps an authenticated session cookie.
 
 ## Tech stack
 - Node.js + Express
 - SQLite (`better-sqlite3`)
-- Vanilla HTML/CSS/JavaScript frontend
+- Vanilla HTML, CSS, and JavaScript
 
 ## Run locally
 
@@ -21,15 +24,22 @@ npm start
 
 Then open [http://localhost:3000](http://localhost:3000).
 
-## API
+## Main routes
 
+- `GET /auth`
+- `GET /app`
 - `GET /api/health`
-- `GET /api/sessions?college=...`
+- `POST /api/auth/register`
+  - body: `{ "username", "password", "displayName", "bio", "experienceLevel", "favoriteLift", "availability" }`
+- `POST /api/auth/login`
+  - body: `{ "username", "password" }`
+- `POST /api/auth/logout`
+- `GET /api/me`
+- `GET /api/sessions`
 - `POST /api/sessions`
-  - body: `{ "hostName", "college", "workoutType", "startTime", "notes", "capacity" }`
+  - body: `{ "workoutType", "startTime", "notes", "capacity" }`
 - `POST /api/sessions/:id/join`
-  - body: `{ "studentName" }`
 
 ## Notes
-- This is an MVP for small-scale campus use.
-- Data is stored locally in `spottr.db`.
+- One user account maps to one Spottr profile.
+- Existing local SQLite data is stored in `spottr.db`.
